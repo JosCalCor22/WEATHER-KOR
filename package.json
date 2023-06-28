@@ -1,0 +1,16 @@
+{
+  "name": "weather_kor",
+  "version": "1.0.0",
+  "description": "Project for use API's ",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "JAVASCRIPT",
+    "ASYNC",
+    "API"
+  ],
+  "author": "Joseth Calderon",
+  "license": "ISC"
+}

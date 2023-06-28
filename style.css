@@ -1,0 +1,217 @@
+:root{
+  --Backgroun-color: #FAEDCA;
+  --Font-color: #000;
+  --Secondary-color: #F2C078;
+  --Extra-color: #7D98A1;
+  --Family-font: 'Raleway', sans-serif;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: var(--Family-font);
+  width: 100%;
+  height: 100%;
+  background: #2C3E50;
+  background: -webkit-linear-gradient(to top, #4CA1AF, #2C3E50);
+  background: linear-gradient(to top, #4CA1AF, #2C3E50);
+}
+/* HEADER BEGGINING */
+.nav__header{
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.div__logo{
+  width: fit-content;
+  display: flex;
+}
+.div__logo--slogan{
+  display: block;
+  margin: auto 0;
+}
+.div__contact{
+  margin: auto 0;
+}
+.div__contact ul{
+  width: fit-content;  
+  display: flex;
+  gap: 16px;
+  list-style: none;
+}
+.div__contact ul a{
+  color: var(--Font-color);
+  text-decoration: none;
+  transition: all .5s ease;
+}
+.div__contact ul a:hover, .div__contact ul a:active{
+  padding: 2px 8px;
+  color: var(--Extra-color);
+  border-bottom: 2px solid var(--Extra-color);
+}
+.div__singUp{
+  margin: auto 0;
+}
+.div__singUp a button{
+  cursor: pointer;
+  padding: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all .5s ease;
+  border: 2px solid #333333;
+  font-family: var(--Family-font);
+  background-color: rgb(125, 152, 161, 06);
+}
+.div__singUp a:hover button{
+  background-color: transparent;
+  color: var(--Extra-color);
+  border: 2px solid #000;
+  box-shadow: inset 0 0 6px 0 #000;
+}
+/* HEADER ENDED */
+/* BODY BEGGINING */
+main{
+  width: inherit;
+  margin-top: 70px;
+}
+.div__search{
+  justify-content: center;
+  display: flex;
+  width: inherit;
+  padding-right: 150px;
+}
+.div__search span{
+  position: relative;
+  height: fit-content;
+  left: 195px;
+  top: 15px;
+  color: #000;
+  font-weight: 600;
+}
+.div__search input:nth-child(2){
+  width: 300px;
+  height: 70px;
+  padding: 25px 10px 0 10px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all .5s ease;
+  border: 2px solid #000;
+  font-family: var(--Family-font);
+  background-color: transparent;
+}
+.div__search input:nth-child(2):hover, .div__search input:nth-child(2):active{
+  box-shadow: 0 0 8px 0 #000;
+}
+.div__search input:nth-child(2):focus{
+  background-color: #4CA1AF;
+  outline: none;
+  color: #333;
+}
+.div__search input:nth-child(3){
+  cursor: pointer;
+  width: 70px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 12px;
+  border-radius: 12px;
+  transition: all .5s ease;
+  text-transform: uppercase;
+  font-family: var(--Family-font);
+  background-color: var(--Extra-color);
+}
+.div__search input:nth-child(3):hover, .div__search input:nth-child(3):active{
+  border: 1px solid #000;
+  background-color: rgb(125, 152, 161, .5);
+}
+.div__cardWeather{
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  margin-top: 50px;
+}
+.name__country{
+  margin-bottom: 20px;
+  padding-left: 30px;
+}
+.info__country--weather{
+  display: flex;
+}
+.info__country--weather-data{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px;
+  border: 2px solid #2C3E50;
+}
+.info__country--weather-data h3{
+  color: #000;
+  text-transform: uppercase;
+}
+.info__country--weather-api{
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  width: 200px;
+  gap: 15.5px;
+  padding: 10px;
+  border-top: 2px solid #2C3E50;
+  border-right: 2px solid #2C3E50;
+  border-bottom: 2px solid #2C3E50;
+}
+.info__country--weather-api span{
+  color: #2C3E50;
+  font-size: 16px;
+  font-weight: 600;
+}
+/* BODY ENDED */
+/* FOOTER BEGGINING */
+footer{
+  justify-content: space-between;
+  display: flex;
+  width: inherit;
+  padding: 30px 50px;
+  margin-top: 50px;
+  border-top: 2px solid #000;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  box-shadow: 0px -2px 10px 1px #000;
+}
+.footer__info ul{
+  flex-direction: column;
+  display: flex;
+  gap: 12px;
+  list-style: none;
+}
+.footer__info ul a{
+  cursor: pointer;
+  width: fit-content;
+  transition: all .5s ease;
+  text-decoration: none;
+  color: var(--Font-color);
+}
+.footer__info ul a:hover, .footer__info ul a:active{
+  padding-right: 10px;
+  border-right: 5px solid #333;
+}
+.footer__logo{
+  margin: auto 0;
+  padding: 10px;
+  transition: all .5s ease;
+  border-radius: 12px;
+}
+.footer__logo:hover{
+  border: 1px solid #333;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px #000;
+}
+.footer__logo a{
+  text-align: center;
+  text-decoration: none;
+  color: var(--Font-color);
+}
+/* FOOTER ENDED */

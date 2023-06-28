@@ -1,0 +1,80 @@
+/* RESPONSIVE DESING BEGGINING*/
+@media(max-width: 765px){
+  .div__contact{
+    display: none;
+  }
+}
+@media(max-width: 720px){
+  .div__search{
+    flex-direction: column;
+    align-items: center;
+    justify-content: unset;
+    padding: 0;
+  }
+  .div__search span{
+    right: 45px;
+    top: 30px;
+    left: unset;
+  }
+  .div__search input:nth-child(2){
+    margin-bottom: 10px;
+  }
+  .div__search input:nth-child(3){
+    width: 300px;
+    height: 60px;
+    margin-left: 0;
+  }
+}
+@media(max-width: 460px){
+  .nav__header{
+    padding: 10px 10px 0 10px;
+  }
+  .div__logo--icon{
+    display: none;
+  }
+  .div__logo--slogan h2{
+    font-size: 22px;
+  }
+  .div__logo--slogan p{
+    font-size: 14px;
+  }
+  .content{
+    width: 0;
+  }
+  .info__country--weather{
+    display: flex;
+    place-items: center;
+  }
+  .info__country--weather-data{
+    width: 200px;
+  }
+  .info__country--weather-api{
+    width: 160px;
+    height: 272px;
+    margin: 0;
+  }
+  footer{
+    align-items: center;
+    justify-content: unset;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .footer__info ul{
+    text-align: center;
+  }
+  .footer__info ul a{
+    width: auto;
+  }
+}
+@media(max-width: 370px){
+  .div__singUp a:nth-child(1){
+    display: none;
+  }
+  .info__country--weather-data{
+    width: 160px;
+  }
+  .info__country--weather-api{
+    width: 155px;
+  }
+}
+/* RESPONSIVE DESING ENDED*/

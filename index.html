@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;600&display=swap" rel="stylesheet">
+    <!-- FONTS -->
+    <!-- FILE CSS -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./responsive.css" media="(max-width: 770px)">
+    <!-- FILE CSS -->
+    <!-- FILE JS -->
+    <script defer src="./script.js"></script>
+    <!-- FILE JS -->
+    <title>Weather_Kor</title>
+  </head>
+  <body>
+    <header>
+      <nav class="nav__header">
+        <div class="div__logo">
+          <div class="div__logo--icon">
+            <img src="./images/Icon-Weather_Kor.png" alt="Icon Weather_Kor">
+          </div>
+          <div class="div__logo--slogan">
+            <h2>WEATHER_KOR</h2>
+            <p>Tu clima y tu dia a dia</p>
+          </div>
+        </div>
+        <div class="div__contact">
+          <ul>
+            <a href="#">
+              <li>Recomendaciones</li>
+            </a>
+            <a href="#">
+              <li>Blogs</li>
+            </a>
+            <a href="#">
+              <li>Contactenos</li>
+            </a>
+          </ul>
+        </div>
+        <div class="div__singUp">
+          <a href="#"><button>Sing In</button></a>
+          <a href="#"><button>Sing Up</button></a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="div__search">
+        <span id="span__inputCountry">Ingresa tu pais o ciudad:</span>
+        <input type="text" id="inputText">
+        <input type="submit" id="buttonSearch" value="Search">
+      </section>
+      <section class="div__cardWeather">
+        <div class="name__country">
+          <h2 id="country"></h2>
+        </div>
+        <div class="info__country--weather">
+          <div class="info__country--weather-data">
+            <h3>Hora local:</h3>
+            <h3>Ciudad:</h3>
+            <h3>Latitud:</h3>
+            <h3>Longitud:</h3>
+            <h3>Humedad:</h3>
+            <h3>Temperatura:</h3>
+            <h3>Velocidad del viento:</h3>
+          </div>
+          <div id="content"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer__info">
+        <ul>
+          <a href="#">
+            <li>Recomendaciones</li>
+          </a>
+          <a href="#">
+            <li>Blogs</li>
+          </a>
+          <a href="#">
+            <li>Contactenos</li>
+          </a>
+        </ul>
+      </div>
+      <div class="footer__logo">
+        <a href="#">
+          <h2>Weather_Kor</h2>
+          <p>Tu clima y tu dia a dia</p>
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>
