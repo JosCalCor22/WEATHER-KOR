@@ -1,19 +1,54 @@
-# WEATHER-KOR
-Este ha sido uno de mis proyectos más importantes para mí. Esta es la primera vez que integro un servicio API. Me inspiré en algunas páginas de resultados climatológicos, pero también le añadí mi propio estilo al momento de escoger los colores y otros valores estéticos como la fuente y estructuración de la página.
+# React + TypeScript + Vite
 
-Esta página te permite conocer los conceptos climatológicos más importantes y relevantes de tu país o cualquier ciudad o ubicación geográfica que introduzcas. Además, los resultados de la API son rápidos, por lo que la espera no será una opción.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Como mencioné, este proyecto es muy especial para mí. No solo veo lo mucho que he avanzado en este mundo llamado desarrollo web, sino que también soy capaz de ver las diferentes habilidades que he aprendido en mi proceso académico y profesional. Me llena de orgullo poder publicarlo y compartirlo con quienes estén viendo mi perfil de GitHub.
+Currently, two official plugins are available:
 
-Link directo de la pagina: https://joscalcor22.github.io/WEATHER-KOR/
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
---------- // --------- // --------- // --------- // --------- // --------- // --------- // --------- // --------- // --------- // ----
+## Expanding the ESLint configuration
 
-# WEATHER-KOR
-This has been one of my most important projects for me. This is the first time I've integrated an API service. I drew inspiration from some weather result pages, but I also added my own style when choosing colors and other aesthetic values such as fonts and page structure.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-This page allows you to learn about the most important and relevant climatological concepts of your country or any city or geographical location you enter. Furthermore, the API results are fast, so waiting won't be an option.
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
-As I mentioned, this project is very special to me. I not only see how much I have progressed in this world called web development, but I also see the different skills I have learned in my academic and professional journey. I'm proud to be able to publish and share it with those who are viewing my GitHub profile.
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-Direct link of my website: https://joscalcor22.github.io/WEATHER-KOR/
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
+```
