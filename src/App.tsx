@@ -1,66 +1,79 @@
 import { useState } from 'react'
 import WeatherCard from './components/WeatherCard'
+import { API_KEY } from './env/const'
 
+import axios from 'axios'
 import './styles/index.css'
 
+const getBackgroundColor = (weatherMain?: string, temp?: number): string => {
+  if (!weatherMain) return 'from-indigo-600 via-blue-700 to-slate-900';
+  const main = weatherMain.toLowerCase();
+
+  if (main.includes('clear')) {
+    return temp! > 25
+      ? 'from-amber-400 via-orange-500 to-rose-600'
+      : 'from-sky-400 via-blue-500 to-indigo-600';
+  }
+
+  if (main.includes('rain') || main.includes('drizzle') || main.includes('thunderstorm')) {
+    return 'from-slate-700 via-gray-800 to-zinc-950';
+  }
+
+  if (main.includes('snow')) {
+    return 'from-blue-100 via-sky-300 to-blue-400';
+  }
+
+  if (main.includes('cloud')) {
+    return 'from-stone-400 via-gray-500 to-slate-600';
+  }
+
+  return 'from-indigo-500 via-purple-600 to-blue-700';
+};
+
 function App() {
-  const [city, setCity] = useState('')
-  const [weatherData, setWeatherData] = useState(null)
+  const [weatherData, setWeatherData] = useState<any>(null)
   const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const handleSearch = async () => {
-    if (!city) return
-    
+  const handleSearch = async (searchTerm: string) => {
+    if (!searchTerm) return
+    setLoading(true)
+
     try {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_WEATHER_API_KEY}`
+      const response = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather`,
+        {
+          params: {
+            q: searchTerm,
+            appid: API_KEY,
+            units: 'metric',
+            lang: 'es'
+          }
+        }
       )
-      
-      if (!response.ok) {
-        throw new Error('City not found')
-      }
 
-      const data = await response.json()
-      setWeatherData(data)
+      setWeatherData(response.data)
       setError('')
     } catch (err) {
       setError('City not found!')
       setWeatherData(null)
+    } finally {
+      setLoading(false)
     }
   }
 
+  const weatherMain = weatherData?.weather[0]?.main;
+  const temp = weatherData?.main?.temp;
+  const bgGradient = getBackgroundColor(weatherMain, temp);
+
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center py-8">
-      <div className="w-full max-w-md px-4 mb-8">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">Weather App</h1>
-        <div className="flex gap-2">
-          <input 
-            type="text" 
-            placeholder="Enter city name" 
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-            className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button 
-            onClick={handleSearch}
-            className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            Search
-          </button>
-        </div>
-        {error && (
-          <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
-            {error}
-          </div>
-        )}
-      </div>
-      
-      {weatherData && (
-        <div className="flex flex-wrap justify-center gap-6">
-          <WeatherCard weatherData={weatherData} />
-        </div>
-      )}
+    <div className={`min-h-screen w-full flex items-center justify-center p-4 transition-all duration-1000 ease-in-out bg-gradient-to-br ${bgGradient}`}>
+      <WeatherCard
+        weatherData={weatherData}
+        handleSearch={handleSearch}
+        error={error}
+        loading={loading}
+      />
     </div>
   )
 }
