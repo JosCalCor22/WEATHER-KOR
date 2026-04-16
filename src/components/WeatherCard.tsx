@@ -79,7 +79,7 @@ const WeatherCard = ({ weatherData, handleSearch, error, loading }: Props) => {
 
   return (
     <div className={`flex flex-col gap-5 p-8 text-white min-h-[600px] w-full max-w-[400px] transition-all duration-500 animate-fade-in`}>
-      <div className="flex flex-col h-full gap-10">
+      <div className="flex flex-col h-full justify-between gap-10">
         {/* Search Input inside the card */}
         <div className="flex w-full">
           <div className="flex gap-2 w-full">
@@ -91,7 +91,7 @@ const WeatherCard = ({ weatherData, handleSearch, error, loading }: Props) => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && onSearchSubmit()}
-              className="search-input w-full bg-white/10 border-white/30 backdrop-blur-sm rounded-lg text-white placeholder-white focus:outline-none focus:bg-white/20 transition-all"
+              className="search-input w-full bg-white/20 border border-white/30 backdrop-blur-sm rounded-lg px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:bg-white/30 transition-all"
             />
             <button
               onClick={onSearchSubmit}
@@ -133,8 +133,8 @@ const WeatherCard = ({ weatherData, handleSearch, error, loading }: Props) => {
               <div className="flex justify-center items-end gap-2">
                 <span className="text-6xl font-black">{Math.round(weatherData.main.temp)}°</span>
                 <div className="flex flex-col text-sm opacity-80 pb-2">
-                  <span>H: {Math.round(weatherData.main.temp_max)}°</span>
-                  <span>L: {Math.round(weatherData.main.temp_min)}°</span>
+                  <span>Max: {Math.round(weatherData.main.temp_max)}°</span>
+                  <span>Min: {Math.round(weatherData.main.temp_min)}°</span>
                 </div>
               </div>
             </div>

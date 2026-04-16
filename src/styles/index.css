@@ -21,8 +21,27 @@ body {
 /* Styles WeatherCard */
 .search-input,
 .search-btn,
-.forecast-container {
+.forecast-container,
+.chat-input,
+.chat-btn,
+.message-div {
   padding: 8px 12px;
+}
+
+/* Styles WeatherChat */
+.weather-chat-container {
+  margin: 20px 0;
+  padding-right: 8px;
+}
+
+.weather-chat-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.weather-chat-container::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
 }
 
 /* Animations */
