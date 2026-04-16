@@ -133,7 +133,7 @@ function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   return (
-    <div className={`min-h-screen w-full flex items-center justify-center p-4 transition-all duration-1000 ease-in-out bg-gradient-to-br ${bgGradient}`}>
+    <div className={`main-container min-h-screen w-full flex items-center justify-center p-4 transition-all duration-1000 ease-in-out bg-gradient-to-br ${bgGradient}`}>
       <div className="flex flex-col xl:flex-row items-center justify-center gap-8 md:gap-12 max-w-7xl w-full relative">
 
         {/* Weather Card - Always Center/Left */}
@@ -160,7 +160,7 @@ function App() {
             {/* Close button inside modal on mobile */}
             <button
               onClick={() => setIsChatOpen(false)}
-              className="xl:hidden fixed bottom-6 right-6 w-14 h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full shadow-2xl flex items-center justify-center text-2xl z-[60] hover:bg-white/30 transition-all active:scale-95 cursor-pointer"
+              className="xl:hidden sm:bottom-6 fixed right-6 top-6 w-14 h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full shadow-2xl flex items-center justify-center text-2xl z-[60] hover:bg-white/30 transition-all active:scale-95 cursor-pointer"
             >
               <IoClose className='text-white' />
             </button>

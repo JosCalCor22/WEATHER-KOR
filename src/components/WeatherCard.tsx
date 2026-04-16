@@ -75,8 +75,6 @@ const WeatherCard = ({ weatherData, handleSearch, error, loading }: Props) => {
     }
   };
 
-  console.log(weatherData)
-
   return (
     <div className={`flex flex-col gap-5 p-8 text-white min-h-[600px] w-full max-w-[400px] transition-all duration-500 animate-fade-in`}>
       <div className="flex flex-col h-full justify-between gap-10">

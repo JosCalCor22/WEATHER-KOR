@@ -79,7 +79,7 @@ const WeatherChat = ({ weatherData, forecastData }: Props) => {
   };
 
   return (
-    <div className="glass-morphism rounded-[2.5rem] p-8 text-white h-[600px] w-full max-w-[450px] flex flex-col animate-fade-in transition-all duration-500">
+    <div className="weather-chat-component glass-morphism rounded-[2.5rem] p-8 text-white h-[600px] w-full max-w-[450px] flex flex-col animate-fade-in transition-all duration-500">
       <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
         Have any question?
       </h2>
@@ -104,7 +104,7 @@ const WeatherChat = ({ weatherData, forecastData }: Props) => {
         ))}
         {loading && (
           <div className="flex justify-start animate-pulse">
-            <div className="bg-white/10 p-4 rounded-2xl text-sm">Typing...</div>
+            <div className="bubble-chat-thinking bg-white/10 rounded-2xl text-sm">Typing...</div>
           </div>
         )}
         <div ref={messagesEndRef} />

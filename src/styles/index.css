@@ -24,11 +24,17 @@ body {
 .forecast-container,
 .chat-input,
 .chat-btn,
-.message-div {
+.message-div,
+.bubble-chat-thinking {
   padding: 8px 12px;
 }
 
 /* Styles WeatherChat */
+.main-container,
+.weather-chat-component {
+  padding: 20px;
+}
+
 .weather-chat-container {
   margin: 20px 0;
   padding-right: 8px;
