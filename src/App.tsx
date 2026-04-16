@@ -6,6 +6,9 @@ import { API_KEY } from './env/const'
 import axios from 'axios'
 import './styles/index.css'
 
+import { IoChatbubble } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
+
 const getBackgroundColor = (weatherMain?: string, temp?: number): string => {
   if (!weatherMain) return 'from-indigo-600 via-blue-700 to-slate-900';
   const main = weatherMain.toLowerCase();
@@ -127,10 +130,14 @@ function App() {
   const temp = weatherData?.main?.temp;
   const bgGradient = getBackgroundColor(weatherMain, temp);
 
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   return (
     <div className={`min-h-screen w-full flex items-center justify-center p-4 transition-all duration-1000 ease-in-out bg-gradient-to-br ${bgGradient}`}>
-      <div className="flex flex-col xl:flex-row items-center justify-center gap-8 md:gap-12 max-w-7xl w-full">
-        <div className="w-full flex justify-center">
+      <div className="flex flex-col xl:flex-row items-center justify-center gap-8 md:gap-12 max-w-7xl w-full relative">
+
+        {/* Weather Card - Always Center/Left */}
+        <div className="w-full flex justify-center z-10">
           <WeatherCard
             weatherData={weatherData}
             handleSearch={handleSearch}
@@ -139,12 +146,36 @@ function App() {
           />
         </div>
 
-        {/* Vertical Divider */}
-        <div className="hidden xl:block w-[1px] h-[500px] bg-white/40 shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
+        {/* Vertical Divider - Only Desktop */}
+        <div className="hidden xl:block w-[2px] h-[500px] bg-white/40 z-10" />
 
-        <div className="w-full flex justify-center">
-          <WeatherChat weatherData={weatherData} forecastData={forecastData} />
+        {/* Chat Component Overlay/Wrapper */}
+        <div className={`
+          ${isChatOpen ? 'fixed inset-0 bg-black/40 backdrop-blur-md flex items-center justify-center p-4 z-50' : 'hidden'} 
+          xl:static xl:flex xl:bg-transparent xl:backdrop-blur-0 xl:p-0 xl:z-10 xl:w-full xl:justify-center
+        `}>
+          <div className="w-full max-w-[450px] animate-fade-in">
+            <WeatherChat weatherData={weatherData} forecastData={forecastData} />
+
+            {/* Close button inside modal on mobile */}
+            <button
+              onClick={() => setIsChatOpen(false)}
+              className="xl:hidden fixed bottom-6 right-6 w-14 h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full shadow-2xl flex items-center justify-center text-2xl z-[60] hover:bg-white/30 transition-all active:scale-95 cursor-pointer"
+            >
+              <IoClose className='text-white' />
+            </button>
+          </div>
         </div>
+
+        {/* Floating Toggle Button - Mobile/Tablet Only */}
+        {!isChatOpen && (
+          <button
+            onClick={() => setIsChatOpen(true)}
+            className="xl:hidden fixed bottom-6 right-6 w-14 h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full shadow-2xl flex items-center justify-center text-2xl z-[60] hover:bg-white/30 transition-all active:scale-95 cursor-pointer"
+          >
+            <IoChatbubble className='text-white' />
+          </button>
+        )}
       </div>
     </div>
   )
